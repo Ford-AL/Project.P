@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Комменты</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles3.css">
+  
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">Геи и шлюхи/gays</a></li>
+                <li><a href="contact.html">Связи с фордиком</a></li>
+                <li><a href="читы.html">Читы/cheats</a></li>
+                <li><a href="huynua.html">Хуйня</a></li>
+                <li><a href="легенды.html">Легенды</a></li>
+                <li><a href="видео.html">Видосики</a></li>
+                <li><a href="комменты.html">Комменты</a></li>
+            </ul>
+        </nav>
+        <h1>Комменты - пишите что угодно</h1>
+        <p>Стикеры: XD01, XD02, XD03, timur2</p>
+    </header>
+
+    <main class="chat-container">
+        <div class="chat-messages" id="chatMessages">
+          
+        </div>
+        
+        <div class="chat-input">
+            <input type="text" id="usernameInput" placeholder="Ваш ник" required>
+            <textarea id="messageInput" placeholder="Ваше сообщение..." required></textarea>
+            <button id="sendButton">Отправить</button>
+        </div>
+    </main>
+
+    <script type="module" src="script3.js"></script>
+
+</body>
+</html>
