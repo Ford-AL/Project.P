@@ -1,0 +1,260 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0; 
+    padding: 0; 
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    overflow-x: hidden; 
+    position: relative; 
+    min-height: 100vh; 
+   
+        cursor: url('xd2.svg'), auto;
+
+}
+
+a, button {
+    cursor: url('xd2.svg'), pointer;
+}
+body::before {
+    content: '';
+    position: fixed; /* Используем fixed вместо absolute */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('фон.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(0.3) blur(5px); 
+    z-index: -1; 
+    transform: scale(1.1); /* Масштабируем фон для предотвращения белых полей */
+}
+
+header {
+    padding: 20px;
+    width: 100%; 
+    background-color: rgba(0, 0, 0, 0.8); 
+    color: white;
+    box-sizing: border-box;
+    position: relative; 
+    z-index: 1; 
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0); 
+    padding: 8px;
+    width: 100%; 
+    box-sizing: border-box;
+}
+
+nav ul li {
+    margin: 0 10px; /* Уменьшил отступы для мобильных */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 8px 12px; /* Уменьшил padding для мобильных */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: rgba(0, 0, 0, 0.8); 
+}
+
+h1 {
+    font-size: 2rem; /* Уменьшил размер шрифта для мобильных */
+    color: white;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1rem; /* Уменьшил размер шрифта для мобильных */
+    color: #ddd;
+    margin-bottom: 10px;
+}
+
+li {
+    font-size: 1rem; /* Уменьшил размер шрифта для мобильных */
+    color: #1900ff;
+    margin-bottom: 10px;
+}
+
+.author a {
+    font-size: 1.5rem; /* Уменьшил размер шрифта для мобильных */
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.author a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.video-section {
+    margin-top: 20px;
+    width: 100%; 
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0); 
+    padding: 20px;
+    position: relative; 
+    z-index: 1; 
+    display: flex;
+    flex-direction: column; /* Stacks videos vertically */
+    align-items: center; /* Centers items horizontally */
+    justify-content: center; /* Centers items vertically */
+    gap: 20px; /* Adds spacing between videos */
+}
+
+video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+.text-container {
+    display: flex;
+    flex-direction: column; /* Изменил на колонку для мобильных */
+    align-items: center; 
+    gap: 10px; /* Уменьшил отступы для мобильных */
+    padding: 10px; /* Уменьшил padding для мобильных */
+    width: 100%;
+    margin: 0 auto;
+}
+
+.text-container a {
+    text-decoration: none;
+    font-size: 1.2rem; /* Уменьшил размер шрифта для мобильных */
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet, red); 
+    background-size: 400% 100%; 
+    -webkit-background-clip: text; 
+    background-clip: text;
+    color: transparent; 
+    animation: rainbow-text 4s linear infinite; 
+    transition: opacity 0.3s ease; 
+}
+
+.text-container a:hover {
+    opacity: 0.8; 
+    text-decoration: underline;
+}
+
+@keyframes rainbow-text {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem; /* Еще меньше для очень маленьких экранов */
+    }
+
+    p, li {
+        font-size: 0.9rem; /* Еще меньше для очень маленьких экранов */
+    }
+
+    .author a {
+        font-size: 1.2rem; /* Еще меньше для очень маленьких экранов */
+    }
+
+    nav ul {
+        flex-direction: column; /* Навигация в колонку для мобильных */
+    }
+
+    nav ul li {
+        margin: 5px 0; /* Уменьшил отступы для мобильных */
+    }
+
+    .text-container a {
+        font-size: 1rem; /* Еще меньше для очень маленьких экранов */
+    }
+}
+
+.text-container2 {
+    display: flex;
+    flex-direction: column; /* Изменил на колонку для мобильных */
+    align-items: center; 
+    gap: 10px; /* Уменьшил отступы для мобильных */
+    padding: 10px; /* Уменьшил padding для мобильных */
+    width: 100%;
+    margin: 0 auto;
+}
+
+.text-container2 a {
+    text-decoration: none;
+    font-size: 1.2rem; /* Reduced font size for mobile */
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(90deg, #FFD700, #DAA520, #B8860B, #FFEF96, #C9B037, #EAC117, #FFD700);
+    background-size: 400% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: legend-text 4s linear infinite;
+    transition: opacity 0.3s ease;
+}
+
+.text-container2 a:hover {
+    opacity: 0.8; 
+    text-decoration: underline;
+}
+
+@keyframes legend-text {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem; /* Еще меньше для очень маленьких экранов */
+    }
+
+    p, li {
+        font-size: 0.9rem; /* Еще меньше для очень маленьких экранов */
+    }
+
+    .author a {
+        font-size: 1.2rem; /* Еще меньше для очень маленьких экранов */
+    }
+
+    nav ul {
+        flex-direction: column; /* Навигация в колонку для мобильных */
+    }
+
+    nav ul li {
+        margin: 5px 0; /* Уменьшил отступы для мобильных */
+    }
+
+    .text-container2 a {
+        font-size: 1rem; /* Еще меньше для очень маленьких экранов */
+    }
+}
+
+
+#xd-image {
+    display: none;
+    width: 1px; 
+    height: 1px;
+}
