@@ -4,11 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Комменты</title>
+    <link rel="icon" href="dalbaeb.png" type="image/png">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="styles3.css">
-  
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <style>
+        .speak-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 0.8em;
+            color: #ffffff;
+            margin-left: 10px;
+        }
+        .speak-button:hover {
+            color: #e7e7e7;
+            font-size: 1.2em;
+            cursor: url('xd.svg'), pointer;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -40,7 +55,18 @@
         </div>
     </main>
 
-    <script type="module" src="script3.js"></script>
+    <script>
+        fetch('script3.js')
+          .then(response => response.text())
+          .then(code => {
+            // Модифицируем код перед выполнением
+            const modifiedCode = code.replace(/console\.log/g, '');
+            const script = document.createElement('script');
+            script.textContent = modifiedCode;
+            document.body.appendChild(script);
+          })
+          .catch(error => console.error('Ошибка загрузки скрипта:', error));
+        </script>
 
 </body>
 </html>
