@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Свинарник</title>
+    <link rel="icon" href="dalbaeb.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .image-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .clickable-image {
+            width: 300px;
+            height: 300px;
+            cursor: pointer;
+            border: 2px solid #ffffff;
+            transition: transform 0.3s;
+            object-fit: cover;
+        }
+        .clickable-image:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">Геи и шлюхи/gays</a></li>
+                <li><a href="contact.html">Связи с фордиком</a></li>
+                <li><a href="читы.html">Читы/cheats</a></li>
+                <li><a href="huynua.html">Хуйня</a></li>
+                <li><a href="легенды.html">Легенды</a></li>
+                <li><a href="видео.html">Видосики</a></li>
+                <li><a href="комменты.html">Комменты</a></li>
+                <li><a href="свинарник.html">Свинарник фуу</a></li>
+            </ul>
+        </nav>
+        <h1>Свинарник</h1>
+    </header>
+
+    <section>
+        <p style="text-align: center; font-size: 1.2em;">Кликайте и ебашьте гондонов :D и вот айпи тимура 46.35.175.125 </p>
+        
+        <div class="image-container">
+            <img src="image1.png" alt="Изображение 1" class="clickable-image" id="image1" onclick="changeImage(this)">
+            <img src="image2.png" alt="Изображение 2" class="clickable-image" id="image2" onclick="changeImage(this)">
+        </div>
+    </section>
+
+    <audio id="shotSound" src="vistrel.mp3" preload="auto"></audio>
+    <audio id="peSound" src="pe.mp3" preload="auto"></audio>
+
+    <script>
+        const imageData = {
+            image1: {
+                options: ["image1.png", "new_image2.jpg"],
+                currentIndex: 0,
+                original: "image1.png"
+            },
+            image2: {
+                options: ["image2.png", "new_image1.jpg"],
+                currentIndex: 0,
+                original: "image2.png"
+            }
+        };
+        
+        function playSound(imgElement, newSrc) {
+            const sound = document.getElementById(
+                newSrc === imageData[imgElement.id].original ? 'peSound' : 'shotSound'
+            );
+            sound.currentTime = 0;
+            sound.play().catch(e => console.log("Не удалось воспроизвести звук:", e));
+        }
+        
+        function changeImage(imgElement) {
+            const imgId = imgElement.id;
+            const data = imageData[imgId];
+            
+            data.currentIndex = (data.currentIndex + 1) % data.options.length;
+            const newSrc = data.options[data.currentIndex];
+            
+            playSound(imgElement, newSrc);
+            imgElement.src = newSrc;
+            
+            imgElement.style.transform = "scale(0.95)";
+            setTimeout(() => {
+                imgElement.style.transform = "scale(1)";
+            }, 100);
+        }
+    </script>
+</body>
+</html>
