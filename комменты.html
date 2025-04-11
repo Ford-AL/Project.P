@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -9,6 +11,7 @@
     <link rel="stylesheet" href="styles3.css">
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <style>
         .speak-button {
             background: none;
@@ -37,7 +40,7 @@
                 <li><a href="легенды.html">Легенды</a></li>
                 <li><a href="видео.html">Видосики</a></li>
                 <li><a href="комменты.html">Комменты</a></li>
-                 <li><a href="свинарник.html">Свинарник фуу</a></li>
+                <li><a href="свинарник.html">Свинарник фуу</a></li>
             </ul>
         </nav>
         <h1>Комменты - пишите что угодно</h1>
@@ -50,9 +53,10 @@
         </div>
         
         <div class="chat-input">
-            <input type="text" id="usernameInput" placeholder="Ваш ник" required>
-            <textarea id="messageInput" placeholder="Ваше сообщение..." required></textarea>
+            <input id="usernameInput" type="text">
+            <input id="messageInput" type="text">
             <button id="sendButton">Отправить</button>
+            <div id="chatMessages"></div>
         </div>
     </main>
 
@@ -60,7 +64,7 @@
         fetch('script3.js')
           .then(response => response.text())
           .then(code => {
-            // Модифицируем код перед выполнением
+         
             const modifiedCode = code.replace(/console\.log/g, '');
             const script = document.createElement('script');
             script.textContent = modifiedCode;
