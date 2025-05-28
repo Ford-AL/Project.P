@@ -4,8 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Читы</title>
-     <link rel="icon" href="dalbaeb.png" type="image/png">
+    <link rel="icon" href="dalbaeb.png" type="image/png">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .cheat img {
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .cheat img:hover {
+            transform: scale(1.05);
+        }
+        #audioPlayer {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -19,17 +31,61 @@
                 <li><a href="легенды.html">Легенды</a></li>
                 <li><a href="видео.html">Видосики</a></li>
                 <li><a href="комменты.html">Комменты</a></li>
-                 <li><a href="свинарник.html">Свинарник фуу</a></li>
+                <li><a href="свинарник.html">Свинарник фуу</a></li>
             </ul>
         </nav>
         <h1>Читы/cheats</h1>
     </header>
 
     <section>
-        <video width="800" height="360" controls autoplay>
-            <source src="rick.mp4" type="video/mp4">
-            Ваш браузер не поддерживает видео тег.
-        </video>
+        <a href="#" onclick="createNewPopUp()" class="cheat">
+            <img src="cheat.jpg" alt="Cheat by foridk">
+        </a>
+        
+        <audio id="audioPlayer" src="haha.mp3" preload="auto"></audio>
     </section>
+
+    <script>
+        let popups = [window];
+
+        function getRandomCoordinates() {
+            return [Math.floor(Math.random() * (screen.width - 10)), Math.floor(Math.random() * (screen.height - 100))];
+        }
+
+        setInterval(() => {
+            if (popups.length != 0) {
+                for (let i = 0; i < popups.length; i++) {
+                    let xy = getRandomCoordinates();
+                    popups[i].moveTo(xy[0], xy[1]);
+                    popups[i].focus();
+                    
+                  
+                    try {
+                        popups[i].resizeTo(550, 300);
+                    } catch(e) {
+                        console.log("Не удалось изменить размер окна:", e);
+                    }
+                }
+            }
+        }, 50);
+
+        function createNewPopUp() {
+            let newWindow = window.open('lol.html', '', 'width=550,height=300,resizable=no');
+            popups.push(newWindow);
+            
+            
+            setTimeout(() => {
+                try {
+                    newWindow.resizeTo(550, 300);
+                } catch(e) {
+                    console.log("Не удалось изменить размер окна:", e);
+                }
+            }, 500);
+            
+            const audio = document.getElementById('audioPlayer');
+            audio.currentTime = 0; 
+            audio.play().catch(e => console.log("Автовоспроизведение заблокировано:", e));
+        }
+    </script>
 </body>
 </html>
